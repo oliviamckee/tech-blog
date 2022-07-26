@@ -1,10 +1,11 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const bcrypt = require('bcrypt');
-const { defaultValueSchemable } = require('sequelize/types/utils');
 
 class User extends Model {
-
+    checkPassword(loginPw) {
+        return bcrypt.compareSync(loginPw, this.password);
+    }
 }
 
 User.init(
@@ -21,7 +22,7 @@ User.init(
         },
         email: {
             type: DataTypes.STRING,
-            allowNull:false,
+            allowNull: false,
             unique: true,
             validate: {
                 isEmail: true
@@ -37,7 +38,16 @@ User.init(
     },
     {
         hooks: {
-
+            // set up beforeCreate lifecycle "hook" functionality
+            async beforeCreate(newUserData) {
+                newUserData.password = await bcrypt.hash(newUserData.password, 10);
+                return newUserData;
+            },
+            // set up beforeUpdate lifecycle "hook" functionality
+            async beforeUpdate(updatedUserData) {
+                updatedUserData.password = await bcrypt.hash(updatedUserData.password, 10);
+                return updatedUserData;
+            }
         },
         sequelize,
         timestamps: false,
