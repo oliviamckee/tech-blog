@@ -49,7 +49,7 @@ ul {
     margin: 10px;
 }
 
-#post-title {
+.post-title {
     font-size: 25px;
     font-weight: 900;
     color: rgb(184, 131, 212);
@@ -93,9 +93,60 @@ textarea {
     border-radius: 15px;
 }
 
-.add-comment {
+.black-button {
     background-color: black;
     color: white;
     border: 3px solid black;
     border-radius: 15px;
+}
+
+/* dashboard */
+
+#new-form {
+    margin: 10px;
+}
+
+#new-text {
+    margin: 10px;
+}
+
+#new-form input {
+    width: 300px;
+}
+
+#new-title input {
+    height: 40px;
+}
+
+#new-text input {
+    height: 100px;
+}
+
+.red-button {
+    background-color: red;
+    color: white;
+    border: 3px solid red;
+    border-radius: 15px;
+}
+
+.edit-title {
+    height: 30px;
+    width: 700px;
+    border-radius: 15px;
+}
+
+.edit-text {
+    height: 30px;
+    width: 700px;
+    border-radius: 15px;
+}
+
+#edit-post {
+    padding: 10px;
+}
+
+#edit-post input {
+    padding: 10px;
+    font-size: 15px;
+    font-weight: 700;
 }
