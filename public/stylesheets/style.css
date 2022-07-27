@@ -112,14 +112,9 @@ textarea {
 
 #new-form input {
     width: 300px;
-}
-
-#new-title input {
+    font-size: 20px;
+    font-weight: 500;
     height: 40px;
-}
-
-#new-text input {
-    height: 100px;
 }
 
 .red-button {
